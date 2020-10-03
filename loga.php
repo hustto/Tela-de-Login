@@ -1,23 +1,23 @@
 <?php
 
-if (isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['senha'])&& !empty($_POST['senha'])){
+if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha'])&& !empty($_POST['senha'])){
 
-require 'conect.php';
-require "userclass.php";
-
-$u = new loga();
+require "UserClass.php";
 
 
-$nome = addslashes( $_POST ['nome']);
+$user = new UserClass();
+
+
+$email = addslashes( $_POST ['email']);
 $senha = addslashes( $_POST ['senha']);
 
-$u ->logar($nome, $senha);
+$retorno = $user->logar($email,$senha);
 
+echo ($retorno)? "<h1>Login feita com sucesso</h1>": "h1>Login feita sem sucesso</h1>";
 }
 else{
-
-    header("index.php");
+    echo "falha";
+    //header("index.php");
 }
 ?>
 
-<h1>Primeira pagina de login feita com sucesso</h1>

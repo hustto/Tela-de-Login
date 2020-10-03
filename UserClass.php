@@ -1,11 +1,8 @@
 <?php
-
-class cliente {
-
+require 'conect.php';
+class UserClass {
 
 public function logar($nome, $senha){
-
-    global $pdo;
 
 $sql= "SELECT * FROM usuarios WHERE nome = :nome AND senha = :senha";
 
@@ -14,10 +11,11 @@ $sql ->bindvalue("nome",$nome);
 $sql ->bindvalue("passoword", md5($senha));
 $sql ->execute();
 
-if ($sql ->rowcout()>0);
-$dado = $sql -> fetch();
+if ($sql->rowcout()==0){
+    return false;
+}
 
-$dado ['id'];
+return true;
 
 }
 
