@@ -13,7 +13,7 @@
 
 <h1 class="title">Entra no Sistema</h1>
 <form class="form" action="loga.php" method="POST">
-<input class="email" required placeholder="E-mail" type="email" name="email" id="email">
+<input class="email" required placeholder="Nome do usuario" type="text" name="nome" id="nome">
 <input class="senha" required placeholder="Senha" type="password" name="senha" id="senha">
 <input class="entrar" type="submit" value="Entrar" id="entra">
 </form>

@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha'])&& !empty($_POST['senha'])){
+if (isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['senha'])&& !empty($_POST['senha'])){
 
 require "UserClass.php";
 
@@ -8,10 +8,10 @@ require "UserClass.php";
 $user = new UserClass();
 
 
-$email = addslashes( $_POST ['email']);
+$nome = addslashes( $_POST ['nome']);
 $senha = addslashes( $_POST ['senha']);
 
-$retorno = $user->logar($email,$senha);
+$retorno = $user->logar($nome,$senha);
 
 echo ($retorno)? "<h1>Login feita com sucesso</h1>": "h1>Login feita sem sucesso</h1>";
 }
