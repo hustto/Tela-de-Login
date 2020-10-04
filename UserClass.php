@@ -1,23 +1,27 @@
 <?php
-require 'conect.php';
-class UserClass {
+require 'Conect.php';
+class UserClass extends Conect {
 
-public function logar($nome, $senha){
+    function __construct(){
+        parent::__construct();
+    }
 
-$sql= "SELECT * FROM usuarios WHERE nome = :nome AND senha = :senha";
+    public function logar($nome, $senha){
 
-$sql = $pdo -> prepare($sql);
-$sql ->bindvalue("nome",$nome);
-$sql ->bindvalue("passoword", md5($senha));
-$sql ->execute();
+        $sql= "SELECT * FROM usuarios WHERE nome = :nome AND senha = :senha";
 
-if ($sql->rowcout()==0){
-    return false;
-}
+        $sql = $this->pdo -> prepare($sql);
+        $sql ->bindvalue("nome",$nome);
+        $sql ->bindvalue("senha", md5($senha));
+        $sql ->execute();
 
-return true;
+        if ($sql->rowCount()==0){
+            return false;
+        }
 
-}
+        return true;
+
+    }
 
 
 

@@ -13,7 +13,7 @@ $senha = addslashes( $_POST ['senha']);
 
 $retorno = $user->logar($nome,$senha);
 
-echo ($retorno)? "<h1>Login feita com sucesso</h1>": "h1>Login feita sem sucesso</h1>";
+echo ($retorno)? "<h1>Login feita com sucesso</h1>": "<h1>Sem sucesso</h1>";
 }
 else{
     echo "falha";
